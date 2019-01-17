@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 
+<!-- 
+Todo
+
+
+
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -27,8 +34,8 @@
         <!-- Tab content -->
         <div id="Open Issues" class="tabcontent">
             <h1>Open Issues</h1>
-            <button onclick="nextFive()">Next 5</button>
             <p>Open Gitcoin issues from the issue explorer.</p>
+            <button onclick="nextFive()">Next 5</button>
             <div id='contentOpen'>
                 <table>
                     <tr>
@@ -40,7 +47,7 @@
                     <tr v-for="i in iss">
                         <td>{{ i.bounty_owner_github_username }}</td>
                         <td><a v-bind:href="i.github_url" target='_blank' class='linkHref'>{{ i.title }}</a></td>
-                        <td>{{ i.modified_on }}</td>
+                        <td class='date'>{{ i.modified_on }}</td>
                         <td>{{ i.created_on }}</td>
                     </tr>
                 </table>
@@ -48,8 +55,8 @@
         </div>
         <div id="Work Started" class="tabcontent">
             <h1>Work Started</h1>
-            <button>Next 5</button>
             <p>Gitcoin issues where work has been started.</p>
+            <button>Next 5</button>
             <div id='contentStarted'>
                     <table>
                         <tr>
@@ -69,8 +76,8 @@
         </div>
         <div id="Work Finished" class="tabcontent">
             <h1>Work Finished</h1>
-            <button>Next 5</button> 
             <p>Gitcoin issues where work has been finished.</p>
+            <button>Next 5</button> 
             <div id='contentFinished'>
                 <table>
                     <tr>

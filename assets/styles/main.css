@@ -65,16 +65,20 @@ html {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
   }
 
-  .tabcontent > h1 {
-    color: #212529;
-  }
-  
   /* Go from zero to full opacity */
   @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
   }
 
+  table {
+      width: 100%;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+  
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
