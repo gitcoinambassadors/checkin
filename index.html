@@ -9,11 +9,85 @@
     <meta name="description" content="Check-in portal for allowing ease of check-in's for Gitcoin issues.">
     <meta name="keywords" content="gitcoin, issues, check-in">
     <link rel="stylesheet" href="assets/styles/main.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">   
 </head>
 
 <body>
+    <div class='top'>
+        <img src='assets/images/logo.png' />
+    </div>
+    <div class='left'>
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openSection(event, 'Open Issues')" id="defaultOpen">Open</button>
+            <button class="tablinks" onclick="openSection(event, 'Work Started')">Work Started</button>
+            <button class="tablinks" onclick="openSection(event, 'Work Finished')">Work  Finished</button>
+        </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+        <!-- Tab content -->
+        <div id="Open Issues" class="tabcontent">
+            <h1>Open Issues</h1>
+            <p>Open Gitcoin issues from the issue explorer. Showing x results.</p>
+        </div>
+
+        <div id="Work Started" class="tabcontent">
+            <h1>Work Started</h1>
+            <p>Gitcoin issues where work has been started. Showing x results.</p>
+        </div>
+
+        <div id="Work Finished" class="tabcontent">
+            <h1>Work Finished</h1>
+            <p>Gitcoin issues where work has been finished. Showing x results.</p>
+        </div>
+        <!--<div id='content'>
+            <ol>
+                <li v-for="i in iss">
+                    {{ i.url }}
+                </li>
+            </ol>-->
+    </div>
+    </div>
+    <div class='right'>
+        <p>something</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $.get(
+            "https://gitcoin.co/api/v0.1/bounties/?network=mainnet&idx_status=started&order_by=-web3_created&offset=0&limit=25",
+            function (d, s) {
+                var app = new Vue({
+                    el: '#content',
+                    data: {
+                        iss: d
+                    }
+                })
+            })
+
+        function openSection(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 
 </html>
