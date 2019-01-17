@@ -27,7 +27,7 @@
         <!-- Tab content -->
         <div id="Open Issues" class="tabcontent">
             <h1>Open Issues</h1>
-            <button>Next 5</button>
+            <button onclick="nextFive()">Next 5</button>
             <p>Open Gitcoin issues from the issue explorer.</p>
             <div id='contentOpen'>
                 <table>
@@ -36,14 +36,12 @@
                         <th>Title</th>
                         <th>Modified On</th>
                         <th>Created On</th>
-                        <th># Comments</th>
                     </tr>
                     <tr v-for="i in iss">
                         <td>{{ i.bounty_owner_github_username }}</td>
-                        <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
+                        <td><a v-bind:href="i.github_url" target='_blank' class='linkHref'>{{ i.title }}</a></td>
                         <td>{{ i.modified_on }}</td>
                         <td>{{ i.created_on }}</td>
-                        <td>{{ i.github_comments }}</td>
                     </tr>
                 </table>
             </div>
@@ -59,14 +57,12 @@
                             <th>Title</th>
                             <th>Modified On</th>
                             <th>Created On</th>
-                            <th># Comments</th>
                         </tr>
                         <tr v-for="i in iss">
                             <td>{{ i.bounty_owner_github_username }}</td>
                             <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
                             <td>{{ i.modified_on }}</td>
                             <td>{{ i.created_on }}</td>
-                            <td>{{ i.github_comments }}</td>
                         </tr>
                     </table>
                 </div>
@@ -82,14 +78,12 @@
                         <th>Title</th>
                         <th>Modified On</th>
                         <th>Created On</th>
-                        <th># Comments</th>
                     </tr>
                     <tr v-for="i in iss">
                         <td>{{ i.bounty_owner_github_username }}</td>
                         <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
                         <td>{{ i.modified_on }}</td>
                         <td>{{ i.created_on }}</td>
-                        <td>{{ i.github_comments }}</td>
                     </tr>
                 </table>
             </div>
@@ -153,6 +147,12 @@
         }
 
         function nextFive() {
+
+            var i; 
+
+            for (i = 0; i < 5; i++) {
+               console.log('test');
+            }
 
         }
 
