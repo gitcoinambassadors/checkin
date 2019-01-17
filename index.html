@@ -34,19 +34,20 @@
                     <tr>
                         <th>Funder</th>
                         <th>Title</th>
+                        <th>Modified On</th>
                         <th>Created On</th>
                         <th># Comments</th>
                     </tr>
                     <tr v-for="i in iss">
                         <td>{{ i.bounty_owner_github_username }}</td>
-                        <td><a href='{{ i.url }}'>{{ i.title }}</a></td>
+                        <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
+                        <td>{{ i.modified_on }}</td>
                         <td>{{ i.created_on }}</td>
                         <td>{{ i.github_comments }}</td>
                     </tr>
                 </table>
             </div>
         </div>
-
         <div id="Work Started" class="tabcontent">
             <h1>Work Started</h1>
             <button>Next 5</button>
@@ -56,19 +57,20 @@
                         <tr>
                             <th>Funder</th>
                             <th>Title</th>
+                            <th>Modified On</th>
                             <th>Created On</th>
                             <th># Comments</th>
                         </tr>
                         <tr v-for="i in iss">
                             <td>{{ i.bounty_owner_github_username }}</td>
-                            <td><a href='{{ i.url }}'>{{ i.title }}</a></td>
+                            <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
+                            <td>{{ i.modified_on }}</td>
                             <td>{{ i.created_on }}</td>
                             <td>{{ i.github_comments }}</td>
                         </tr>
                     </table>
                 </div>
         </div>
-
         <div id="Work Finished" class="tabcontent">
             <h1>Work Finished</h1>
             <button>Next 5</button> 
@@ -78,12 +80,14 @@
                     <tr>
                         <th>Funder</th>
                         <th>Title</th>
+                        <th>Modified On</th>
                         <th>Created On</th>
                         <th># Comments</th>
                     </tr>
                     <tr v-for="i in iss">
                         <td>{{ i.bounty_owner_github_username }}</td>
-                        <td><a href='{{ i.url }}'>{{ i.title }}</a></td>
+                        <td><a v-bind:href="i.github_url" target='_blank'>{{ i.title }}</a></td>
+                        <td>{{ i.modified_on }}</td>
                         <td>{{ i.created_on }}</td>
                         <td>{{ i.github_comments }}</td>
                     </tr>
@@ -146,6 +150,10 @@
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+
+        function nextFive() {
+
         }
 
         document.getElementById("defaultOpen").click();
