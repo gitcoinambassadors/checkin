@@ -17,25 +17,13 @@ html {
 }
 
 .left {
-    float: left;
-    width: 65%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: #fff;
     -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     text-align: left;
-}
-
-.right {
-    float: left;
-    width: 27.5%;
-    margin-right: 2.5%;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
 }
 /* Style the tab */
 .tab {
