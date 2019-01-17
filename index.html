@@ -28,6 +28,22 @@
         <div id="Open Issues" class="tabcontent">
             <h1>Open Issues</h1>
             <p>Open Gitcoin issues from the issue explorer. Showing x results.</p>
+            <div id='contentOpen'>
+                <table>
+                    <tr>
+                        <th>Funder</th>
+                        <th>Title</th>
+                        <th>Created On</th>
+                        <th># Comments</th>
+                    </tr>
+                    <tr v-for="i in iss">
+                        <td>{{ i.bounty_owner_github_username }}</td>
+                        <td>{{ i.title }}</td>
+                        <td>{{ i.created_on }}</td>
+                        <td>{{ i.github_comments }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div id="Work Started" class="tabcontent">
@@ -39,12 +55,6 @@
             <h1>Work Finished</h1>
             <p>Gitcoin issues where work has been finished. Showing x results.</p>
         </div>
-        <!--<div id='content'>
-            <ol>
-                <li v-for="i in iss">
-                    {{ i.url }}
-                </li>
-            </ol>-->
     </div>
     </div>
     <div class='right'>
@@ -55,7 +65,27 @@
 
     <script>
         $.get(
+            "https://gitcoin.co/api/v0.1/bounties/?network=mainnet&idx_status=open&order_by=-web3_created&offset=0&limit=25",
+            function (d, s) {
+                var app = new Vue({
+                    el: '#contentOpen',
+                    data: {
+                        iss: d
+                    }
+                })
+            })
+        $.get(
             "https://gitcoin.co/api/v0.1/bounties/?network=mainnet&idx_status=started&order_by=-web3_created&offset=0&limit=25",
+            function (d, s) {
+                var app = new Vue({
+                    el: '#content',
+                    data: {
+                        iss: d
+                    }
+                })
+            })
+        $.get(
+            "https://gitcoin.co/api/v0.1/bounties/?network=mainnet&idx_status=finished&order_by=-web3_created&offset=0&limit=25",
             function (d, s) {
                 var app = new Vue({
                     el: '#content',

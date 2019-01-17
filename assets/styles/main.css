@@ -4,6 +4,7 @@ html {
     text-align: center;
     background-color: #F9F9F9;
     font-family: 'Montserrat', sans-serif;
+    padding-bottom: 50px;
 }
 .top {
     width: 100%;
@@ -21,7 +22,6 @@ html {
     margin-left: 2.5%;
     margin-right: 2.5%;
     background-color: #fff;
-    border-radius: 5px;
     -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
@@ -33,7 +33,6 @@ html {
     width: 27.5%;
     margin-right: 2.5%;
     background-color: #fff;
-    border-radius: 5px;
     -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2);
@@ -77,9 +76,18 @@ html {
   .tabcontent {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
   }
+
+  .tabcontent > h1 {
+    color: #212529;
+  }
   
   /* Go from zero to full opacity */
   @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
   }
